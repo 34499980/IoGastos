@@ -7,10 +7,10 @@ import { AppRoutePaths } from './enums/path.enums';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Home', url: AppRoutePaths.HOME, icon: 'home' },
+    { title: 'Home', url: '', icon: 'home' },
     { title: 'Categorias', url: `${AppRoutePaths.CATEGORY}/${AppRoutePaths.CATEGORIESLIST}`, icon: 'copy' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'copy' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
+    { title: 'Cuotas', url: `${AppRoutePaths.FEE}/${AppRoutePaths.FEE}`, icon: 'journal' },
+    { title: 'Configuraciones', url: `${AppRoutePaths.SETTINGS}/${AppRoutePaths.SETTINGS}`, icon: 'settings' },
     { title: 'Trash', url: '/folder/trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/spam', icon: 'warning' },
   ];

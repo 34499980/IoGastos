@@ -16,7 +16,19 @@ export const appRoutes: Route[] = [
     path: '',
     loadChildren: ()=> import('../app/modules/home/home.routes')
   
+  },{
+    
+    path: AppRoutePaths.FEE,
+    loadChildren: ()=> import('../app/modules/Fee/fee.routes')
+  
+  },
+  {
+    
+    path: AppRoutePaths.SETTINGS,
+    loadChildren: ()=> import('../app/modules/Settings/settings.routes')
+  
   }
+  
   /*,
   {
     
@@ -24,19 +36,8 @@ export const appRoutes: Route[] = [
     loadChildren: ()=> import('../app/modules/summary/summary.routes')
   
   },
-  {
-    
-    path: AppRoutePaths.FEE,
-    loadChildren: ()=> import('../app/modules/fee/fee.routes')
   
-  }
-  ,
-  {
-    
-    path: AppRoutePaths.SETTINGS,
-    loadChildren: ()=> import('../app/modules/settings/settings.routes')
-  
-  }*/
+  */
 ];
 
 

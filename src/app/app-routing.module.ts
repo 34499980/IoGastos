@@ -19,7 +19,18 @@ const routes: Routes = [
   path: AppRoutePaths.CATEGORY,
   loadChildren: ()=> import('../app/modules/Categories/category.routes')
 
+},{
+    
+  path: AppRoutePaths.FEE,
+  loadChildren: ()=> import('../app/modules/Fee/fee.routes')
+
 },
+{
+    
+  path: AppRoutePaths.SETTINGS,
+  loadChildren: ()=> import('../app/modules/Settings/settings.routes')
+
+}
 ];
 
 @NgModule({

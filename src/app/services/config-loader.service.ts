@@ -10,7 +10,7 @@ import * as packageJson from '../../../package.json';
   export class ConfigsLoaderService {
     private httpClient: HttpClient;
     private config: Configs = {
-      apiUrl: 'https://gastos-api-2-fnigs6154-34499980s-projects.vercel.app/api'
+      apiUrl: 'http://localhost:8080/api'
     };
     get packageJson() {return packageJson}
     

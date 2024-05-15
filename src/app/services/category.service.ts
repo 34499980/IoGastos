@@ -31,6 +31,7 @@ import { Category } from "../models/models";
     return this.httpClient.post<any>(`${this.apiEndpoint}/Category/add`, input)
   }
   public delete(input: string): Observable<any> {   
-    return this.httpClient.delete<any>(`${this.apiEndpoint}/Category/remove/${input}`)
+    const params = new HttpParams().set('key', input)
+    return this.httpClient.delete<any>(`${this.apiEndpoint}/Category/remove?`,{params})
   }
   }

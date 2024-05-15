@@ -35,7 +35,8 @@ import { Category, Movement, SummaryByYear } from "../models/models";
     return this.httpClient.post<any>(`${this.apiEndpoint}/Movement/add`, input)
   }
   public delete(input: string): Observable<any> {   
-    return this.httpClient.delete<any>(`${this.apiEndpoint}/Movement/remove/${input}`)
+    const params = new HttpParams().set('key', input)
+    return this.httpClient.delete<any>(`${this.apiEndpoint}/Movement/remove?`,{params})
   }
   public getAllTotals(): Observable<SummaryByYear[]> {   
       return this.httpClient.get<SummaryByYear[]>(`${this.apiEndpoint}/Totals/getAll`)

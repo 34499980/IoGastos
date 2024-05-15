@@ -4,11 +4,13 @@
                 <mat-form-field class="cell">
                         <mat-label>Imagen</mat-label>
                         <mat-select formControlName="image" (selectionChange)="onImageChange($event.value)" required>
-                                <mat-select-trigger>                                       
-                                        <mat-icon>{{selectedImage.description}}</mat-icon>
+                                <mat-select-trigger>     
+                                        <ion-icon slot="icon-only" name="{{selectedImage.description}}"></ion-icon>
+                                  
                                       </mat-select-trigger>
                                 <mat-option *ngFor="let item of list" [value]="item.key">
-                                <mat-icon>{{item.description}}</mat-icon>
+                                        <ion-icon slot="icon-only" name="{{item.description}}"></ion-icon>
+
                                 </mat-option>
                         </mat-select>
                 </mat-form-field>

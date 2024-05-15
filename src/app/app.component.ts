@@ -7,9 +7,9 @@ import { AppRoutePaths } from './enums/path.enums';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Home', url: AppRoutePaths.HOME, icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
+    { title: 'Home', url: AppRoutePaths.HOME, icon: 'home' },
+    { title: 'Categorias', url: `${AppRoutePaths.CATEGORY}/${AppRoutePaths.CATEGORIESLIST}`, icon: 'copy' },
+    { title: 'Favorites', url: '/folder/favorites', icon: 'copy' },
     { title: 'Archived', url: '/folder/archived', icon: 'archive' },
     { title: 'Trash', url: '/folder/trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/spam', icon: 'warning' },

@@ -18,6 +18,7 @@ import { Item } from '../../models/item.model';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { IonicModule } from '@ionic/angular';
 export interface DialogData {
     list: Item[];
     imageSelected: string;
@@ -41,7 +42,8 @@ export interface DialogData {
         MatInputModule,
         MatRippleModule,
         MatSelectModule,
-        MatIconModule, ]
+        MatIconModule, 
+      IonicModule]
   })
   export class DialogSelect {
     list: Item[]; 

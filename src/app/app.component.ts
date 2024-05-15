@@ -11,8 +11,8 @@ export class AppComponent {
     { title: 'Categorias', url: `${AppRoutePaths.CATEGORY}/${AppRoutePaths.CATEGORIESLIST}`, icon: 'copy' },
     { title: 'Cuotas', url: `${AppRoutePaths.FEE}/${AppRoutePaths.FEE}`, icon: 'journal' },
     { title: 'Configuraciones', url: `${AppRoutePaths.SETTINGS}/${AppRoutePaths.SETTINGS}`, icon: 'settings' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Resumen por mes', url:  `${AppRoutePaths.SUMMARY}/${AppRoutePaths.BYMONTH}`, icon: 'eye' },
+    { title: 'Resumen por año', url:  `${AppRoutePaths.SUMMARY}/${AppRoutePaths.BYYEAR}`, icon: 'eye' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}

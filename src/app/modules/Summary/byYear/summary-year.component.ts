@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { DialogMovement } from '../../../dialogs/dialog-movement/dialog-movement';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-summary-year',
@@ -42,7 +43,8 @@ import { DialogMovement } from '../../../dialogs/dialog-movement/dialog-movement
         MatIconModule,
          MatDialogModule,
          ReactiveFormsModule,
-         MatInputModule  ]
+         MatInputModule
+        ,IonicModule  ]
 })
 
 export default class SummaryByYearComponent implements OnInit {

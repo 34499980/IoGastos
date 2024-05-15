@@ -27,17 +27,14 @@ export const appRoutes: Route[] = [
     path: AppRoutePaths.SETTINGS,
     loadChildren: ()=> import('../app/modules/Settings/settings.routes')
   
-  }
-  
-  /*,
-  {
+  },{
     
     path: AppRoutePaths.SUMMARY,
-    loadChildren: ()=> import('../app/modules/summary/summary.routes')
+    loadChildren: ()=> import('../app/modules/Summary/summary.routes')
   
   },
   
-  */
+  
 ];
 
 

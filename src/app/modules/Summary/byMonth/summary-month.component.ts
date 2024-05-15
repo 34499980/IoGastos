@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { DialogMovement } from '../../../dialogs/dialog-movement/dialog-movement';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-summary-month',
@@ -42,7 +43,8 @@ import { DialogMovement } from '../../../dialogs/dialog-movement/dialog-movement
         MatIconModule,
          MatDialogModule,
          ReactiveFormsModule,
-         MatInputModule  ]
+         MatInputModule,
+        IonicModule  ]
 })
 
 export default class SummaryByMonthComponent implements OnInit {
@@ -51,8 +53,8 @@ export default class SummaryByMonthComponent implements OnInit {
   public dialogService = inject(MatDialog);
   route = inject(ActivatedRoute);
   dataTable$: Subject<SummaryByMonth[]> = new Subject();
-  listCategories: Item[];
-  listTypes: Item[];
+  listCategories: Item[] = [];
+  listTypes: Item[] = [];
   date = new Date();
   list: SummaryByMonth[] = [];
   listFilter: SummaryByMonth[] = [];

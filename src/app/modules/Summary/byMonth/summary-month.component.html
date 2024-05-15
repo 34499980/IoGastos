@@ -1,3 +1,11 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Resumen por mes</ion-title>
+    </ion-toolbar>
+  </ion-header>
 <div class="header">
     <ng-container [formGroup]="formGroup"> 
         <div>
@@ -15,7 +23,7 @@
                 <input matInput formControlName="year"  />
         </mat-form-field>
         <button mat-button color="primary" style="margin-bottom: 10px;" (click)="search()" [disabled]="formGroup.invalid">
-            <mat-icon>search</mat-icon>
+            <ion-icon slot="icon-only" name="search"></ion-icon>
         </button>
         <mat-form-field  class="cellYear">
             <mat-label>Categoria
@@ -35,7 +43,7 @@
             <ng-container matColumnDef="category">
                 <mat-header-cell class="cellCategory" *matHeaderCellDef> Categoria </mat-header-cell>             
                 <mat-cell (click)="edit(item)" class="cellCategory" *matCellDef="let item">
-                     <mat-icon>{{item.image}} </mat-icon>
+                    <ion-icon slot="icon-only" name="{{item.image}}"></ion-icon>
                 </mat-cell>
               </ng-container>
         

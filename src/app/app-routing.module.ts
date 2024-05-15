@@ -30,7 +30,12 @@ const routes: Routes = [
   path: AppRoutePaths.SETTINGS,
   loadChildren: ()=> import('../app/modules/Settings/settings.routes')
 
-}
+},{
+    
+  path: AppRoutePaths.SUMMARY,
+  loadChildren: ()=> import('../app/modules/Summary/summary.routes')
+
+},
 ];
 
 @NgModule({

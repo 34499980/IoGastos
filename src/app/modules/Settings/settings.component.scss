@@ -6,8 +6,8 @@
 .table{
   z-index: -11;
 }
-.button-add{
-  margin: 4px;
+.button{
+  vertical-align: top;
 }
 .header{
   background-color: lavender;
@@ -16,8 +16,7 @@
 }
 .center {
   margin: auto;
-  width: 90%;
-  padding: 10px;
+  width: 100%;
 }
 .button-icon{
   padding: 0%;

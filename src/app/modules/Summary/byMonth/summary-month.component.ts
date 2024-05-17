@@ -113,7 +113,7 @@ export default class SummaryByMonthComponent implements OnInit {
           amount: element.amount,
           category: this.listCategories.find(x => x.key == element.categoryKey)?.description as string,
           image: this.listCategories.find(x => x.key == element.categoryKey)?.image as string,
-          date: element.createdDate,
+          date: element.modifiedDate == '' ? element.createdDate : element.modifiedDate,
           description: element.description,
           type: this.listTypes.find(x => x.key == element.typeKey)?.description as string,
           due: element.due
@@ -173,7 +173,7 @@ export default class SummaryByMonthComponent implements OnInit {
           description: result.description,
           dueBool: result.due > 0? true: false,
           dueKey: '',
-          key: '',
+          key: row.key,
           modifiedDate: '',
           typeKey: result.type,
           due: result.due,

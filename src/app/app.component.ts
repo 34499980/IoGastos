@@ -6,6 +6,20 @@ import { AppRoutePaths } from './enums/path.enums';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  //Comandos para deployar
+  /*
+ionic build
+ionic capacitor build android
+npx cap open android
+if(error){
+  npm uninstall -g ionic
+  npm uninstall -g @ionic/cli
+  npm install -g @ionic/cli
+}
+
+
+
+  */
   public appPages = [
     { title: 'Home', url: '', icon: 'home' },
     { title: 'Categorias', url: `${AppRoutePaths.CATEGORY}/${AppRoutePaths.CATEGORIESLIST}`, icon: 'copy' },

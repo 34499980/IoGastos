@@ -16,6 +16,7 @@ import { Item } from 'src/app/models/item.model';
 import { Movement, SummaryHome, Due } from 'src/app/models/models';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
+import { DialogConfirm } from 'src/app/dialogs/confirm/dialog-confirm';
 @Component({
   selector: 'summary-home',
   styleUrls: ['summary-home.component.scss'],
@@ -190,10 +191,21 @@ export default class SummaryHomeComponent {
     });
   }
   delete(key: string){
-    this.movementService.delete(key).subscribe({
-      next: res => {
-        this.loadData()
-      } 
-    })
+    const dialogRef = this.dialogService.open(DialogConfirm, {
+      data: {name: '', object: "el movimiento"},
+      
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+     if(result){
+      this.movementService.delete(key).subscribe({
+        next: res => {
+          this.loadData()
+        } 
+      }) 
+     }
+    });
+ 
   }
 }

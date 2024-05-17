@@ -22,16 +22,16 @@ import { Category } from "../models/models";
 
     
   public getAll(): Observable<Category[]> {   
-    return this.httpClient.get<Category[]>(`${this.apiEndpoint}/Category/getAll`)
+    return this.httpClient.get<Category[]>(`${this.apiEndpoint}/category/getAll`)
   }
   public edit(input: Category): Observable<any> {   
-    return this.httpClient.put<any>(`${this.apiEndpoint}/Category/edit`, input)
+    return this.httpClient.put<any>(`${this.apiEndpoint}/category/edit`, input)
   }
   public add(input: Category): Observable<any> {   
-    return this.httpClient.post<any>(`${this.apiEndpoint}/Category/add`, input)
+    return this.httpClient.post<any>(`${this.apiEndpoint}/category/add`, input)
   }
   public delete(input: string): Observable<any> {   
     const params = new HttpParams().set('key', input)
-    return this.httpClient.delete<any>(`${this.apiEndpoint}/Category/remove?`,{params})
+    return this.httpClient.get(`${this.apiEndpoint}/category/removeget`,{params})
   }
   }

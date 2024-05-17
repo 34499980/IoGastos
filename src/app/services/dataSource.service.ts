@@ -22,12 +22,12 @@ import { Category } from "../models/models";
 
     
   public getAllCategories(): Observable<Item[]> {   
-    return this.httpClient.get<Item[]>(`${this.apiEndpoint}/DataSource/getCategories`)
+    return this.httpClient.get<Item[]>(`${this.apiEndpoint}/dataSource/getCategories`)
   }
   public getImages(): Observable<Item[]> {   
-    return this.httpClient.get<Item[]>(`${this.apiEndpoint}/DataSource/getImages`)
+    return this.httpClient.get<Item[]>(`${this.apiEndpoint}/dataSource/getImages`)
   }
   public getTypes(): Observable<Item[]> {   
-    return this.httpClient.get<Item[]>(`${this.apiEndpoint}/DataSource/getTypes`)
+    return this.httpClient.get<Item[]>(`${this.apiEndpoint}/dataSource/getTypes`)
   }
   }

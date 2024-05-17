@@ -1,7 +1,18 @@
+.page{
+ 
+  overflow-y: scroll; 
+   
+}
 table {
+    top: 10%;
+    position: relative;
     width: 100%;
+    overflow-y: scroll;
   }
   .tableDetail {
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
     border-collapse: collapse;
     tr, td{
         border: 1px solid;
@@ -14,9 +25,11 @@ table {
     justify-content:flex-end;
 }
 .center {
-    margin: auto;
-    width: 90%;
-    padding: 10px;
+  vertical-align: top;
+    margin: 0px auto;
+    width: 100%;
+    overflow-y: scroll;
+    top:10px;
   }
   .grid-container {
     display: grid;
@@ -28,9 +41,11 @@ table {
       } 
   }
   .header{
+    position: absolute;
     background-color: lavender;
     height: 50px;
     width: 100%;
+    top: 10%
 }
   tr.example-detail-row {
     height: 0;
@@ -51,6 +66,7 @@ table {
   .example-element-detail {
     overflow: hidden;
     display: flex;
+    overflow-y: scroll;
   }
   
   .example-element-diagram {

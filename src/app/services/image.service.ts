@@ -22,9 +22,9 @@ import { Category } from "../models/models";
 
     
   public add(item: Item): Observable<any> {   
-    return this.httpClient.post<any>(`${this.apiEndpoint}/Image/add`, item)
+    return this.httpClient.post<any>(`${this.apiEndpoint}/image/add`, item)
     }
 public edit(item: Item): Observable<any> {   
-    return this.httpClient.post<any>(`${this.apiEndpoint}/Image/edit`, item)
+    return this.httpClient.post<any>(`${this.apiEndpoint}/image/edit`, item)
     }
 }

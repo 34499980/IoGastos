@@ -65,6 +65,7 @@ export default class FeeComponent implements OnInit {
       next: res =>{
         res.forEach(element => {
           const newItem: Due = {
+            key: element.dueKey,
             countDues: element.due?.countDues as string,
             totalAmount: element.due?.totalAmount  as number,
             amount: element.due?.amount,            
@@ -73,7 +74,11 @@ export default class FeeComponent implements OnInit {
             category: this.listCategories.find(x => x.key == element.categoryKey)?.description,
             description: element.description
           }
-          this.list.push(newItem);
+          const exist = this.list.find(x => x.key == element.dueKey);          
+          if(!exist){
+            this.list.push(newItem);
+          }
+        
          });
        // this.list = this.list.sort((a,b) => b.countDues.localeCompare(a.countDues));
         this.dataSource.data =  this.list;

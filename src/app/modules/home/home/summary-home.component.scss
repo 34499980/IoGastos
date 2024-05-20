@@ -24,13 +24,24 @@ table {
     display: flex;
     justify-content:flex-end;
 }
+@media screen and (max-height: 2280px) {
+  .center {
+    vertical-align: top;
+      margin: 0px auto;
+      width: 100%;
+      overflow-y: scroll;
+      top:10px;
+      max-height: 750px;
+      overflow: auto; 
+    }
+}
 .center {
   vertical-align: top;
     margin: 0px auto;
     width: 100%;
     overflow-y: scroll;
     top:10px;
-    max-height: 750px;
+    max-height: 700px;
     overflow: auto; 
   }
   .grid-container {

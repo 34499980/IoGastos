@@ -12,7 +12,7 @@ import * as packageJson from '../../../package.json';
     prod: string = 'https://gastos-api-2-mcau5e5su-34499980s-projects.vercel.app/api';
     dev: string = 'http://localhost:8080/api';
     private config: Configs = {
-      apiUrl: `${this.dev}`
+      apiUrl: `${this.prod}`
     };
     get packageJson() {return packageJson}
     

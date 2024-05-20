@@ -69,26 +69,9 @@ export default class SummaryHomeComponent {
     
     this.getMovements();
     this.loadData(); 
-    this.startMonthProccess(); 
     
   }
-  startMonthProccess(){
-    this.movementService.getTotalByMonth().subscribe({
-      next: res => {
-        if(!res){
-          this.dueService.processByMonth().subscribe({
-            next: res => {
-              this.movementService.processTotals().subscribe({
-                next: res => {
-                  this.movementService.removeOldDues().subscribe()
-                }
-              })
-            }
-          })
-        }
-      } 
-    }) 
-  }
+ 
   restValidation(){
    return this.salary - this.buys < 1? true: false;
   }
@@ -120,11 +103,13 @@ export default class SummaryHomeComponent {
           }
           index++;
         }
+        movementList = movementList.sort((a,b) => b.createdDate.localeCompare(a.createdDate));
+
         this.newItem.movement = movementList;
         this.list.push(this.newItem);
       }    
-     // const listResp = this.list.sort((a,b) => b.Tipo.localeCompare(a.Tipo));
-      this.dataSource.data = this.list;
+      const listResp = this.list.sort((a,b) => b.Tipo.localeCompare(a.Tipo));
+      this.dataSource.data = listResp;
     })
   }
   createDue(amount: number, due: number): Due{
@@ -144,6 +129,8 @@ export default class SummaryHomeComponent {
     return newItem;
   }
   loadData(){
+    this.buys = 0;
+    this.salary = 0;
     this.newDue = {} as any ; 
     this.newItem = {} as any ;   
     this.list = [];

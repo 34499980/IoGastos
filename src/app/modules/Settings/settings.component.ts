@@ -21,6 +21,8 @@ import { Item } from '../../models/item.model';
 import { DialogInput } from '../../dialogs/dialog-input/dialog-input';
 import { ImageService } from '../../services/image.service';
 import { IonicModule } from '@ionic/angular';
+import { DataSourceService } from 'src/app/services/dataSource.service';
+import { MovementService } from 'src/app/services/movement.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -47,6 +49,9 @@ import { IonicModule } from '@ionic/angular';
 export default class SettingsComponent implements OnInit {
   public dialogService = inject(MatDialog);
   imageService = inject(ImageService);
+  movementService = inject(MovementService);
+  dataSourceService = inject(DataSourceService);
+  dueService = inject(DueService);
   constructor( ){
 
   }
@@ -54,7 +59,23 @@ export default class SettingsComponent implements OnInit {
   
    
   }
- 
+  startMonthProccess(){
+    this.movementService.getTotalByMonth().subscribe({
+      next: res => {
+        if(!res){
+          this.dueService.processByMonth().subscribe({
+            next: res => {
+              this.movementService.processTotals().subscribe({
+                next: res => {
+                  this.movementService.removeOldDues().subscribe()
+                }
+              })
+            }
+          })
+        }
+      } 
+    }) 
+  }
   addImageCategory(){
     const dialogRef = this.dialogService.open(DialogInput, {
       data: {

@@ -20,7 +20,8 @@
   vertical-align: top;
   margin: 0px auto;
   width: 100%;
-  overflow-y: scroll;
+  max-height: 750px;
+  overflow: auto; 
   top:10px;
 }
 .button-icon{

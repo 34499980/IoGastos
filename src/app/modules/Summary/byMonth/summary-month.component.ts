@@ -106,7 +106,8 @@ export default class SummaryByMonthComponent implements OnInit {
       })
     ).subscribe(res  =>  {
       this.listMovement = res;
-      const list = res.sort((a,b) => b.createdDate.localeCompare(a.createdDate));
+      
+      const list = res.sort((a, b) => new Date(b.createdDate).getDate() - new Date(a.createdDate).getDate());
       list.forEach(element => {
         const newItem: SummaryByMonth = {
           key : element.key,
@@ -120,8 +121,7 @@ export default class SummaryByMonthComponent implements OnInit {
         }
         this.list.push(newItem);
       });
-      console.log(this.list)
-      this.dataSource.data = this.list;
+      this.dataSource.data =  this.list;
     
     })
   }

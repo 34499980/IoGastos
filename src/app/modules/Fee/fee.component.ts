@@ -63,7 +63,9 @@ export default class FeeComponent implements OnInit {
   getSummary(){
     this.dueService.getAll().subscribe({
       next: res =>{
-        res.forEach(element => {
+        const listSort = res.sort((a, b) => new Date(b.createdDate).getDate() - new Date(a.createdDate).getDate());
+
+        listSort.forEach(element => {
           const newItem: Due = {
             key: element.dueKey,
             countDues: element.due?.countDues as string,

@@ -102,8 +102,8 @@ export default class SummaryHomeComponent {
             this.buys += res[index].amount;
           }
           index++;
-        }
-        movementList = movementList.sort((a,b) => b.createdDate.localeCompare(a.createdDate));
+        }       
+        movementList =  movementList.sort((a, b) => new Date(b.createdDate).getDate() - new Date(a.createdDate).getDate());
 
         this.newItem.movement = movementList;
         this.list.push(this.newItem);

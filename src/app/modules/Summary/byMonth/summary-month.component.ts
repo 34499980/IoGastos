@@ -166,7 +166,7 @@ export default class SummaryByMonthComponent implements OnInit {
         const date = new Date();     
      
         const input: Movement = {
-          amount: result.amount,
+          amount: result.amount as number,
           categoryKey: result.category,
           createdDate: '',
           createdBy: 'system',

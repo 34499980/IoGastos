@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://gastos-api-2-mcau5e5su-34499980s-projects.vercel.app",
+      "target": "https://gastos-api-2-git-main-34499980s-projects.vercel.app",
       "secure": false
     }
   }

@@ -9,11 +9,12 @@ import * as packageJson from '../../../package.json';
   })
   export class ConfigsLoaderService {
     private httpClient: HttpClient;
-    prod: string = 'https://gastos-api-2-git-main-34499980s-projects.vercel.app/api';
-    public static pubProd: string;
+    prod: string = 'https://gastos-api-2-git-main-34499980s-projects.vercel.app/api';    
     dev: string = 'http://localhost:8080/api';
+    uiURL: string = 'https://io-gastos-git-master-34499980s-projects.vercel.app';
     private config: Configs = {
-      apiUrl: `${this.prod}`
+      apiUrl: `${this.prod}`,
+      uiUrl: `${this.uiURL}`
     };
     get packageJson() {return packageJson}
     
@@ -32,4 +33,5 @@ import * as packageJson from '../../../package.json';
   }  
   export interface Configs {
     apiUrl: string;
+    uiUrl: string;
   }

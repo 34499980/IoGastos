@@ -61,9 +61,7 @@ export default class SettingsComponent implements OnInit {
 
   }
   ngOnInit(): void {
-  this.formGroup.controls.name.valueChanges.subscribe(val => {
-    this.setNewUrl(val as string);
-  });
+  this.formGroup.controls.name.setValue(this.config.uiURL);
    
   }
   startMonthProccess(){

@@ -23,6 +23,7 @@ import { ImageService } from '../../services/image.service';
 import { IonicModule } from '@ionic/angular';
 import { DataSourceService } from 'src/app/services/dataSource.service';
 import { MovementService } from 'src/app/services/movement.service';
+import { ConfigsLoaderService } from 'src/app/services/config-loader.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -52,11 +53,17 @@ export default class SettingsComponent implements OnInit {
   movementService = inject(MovementService);
   dataSourceService = inject(DataSourceService);
   dueService = inject(DueService);
+  config = inject(ConfigsLoaderService);
+  formGroup = new FormBuilder().group({
+    name: ['']
+  });
   constructor( ){
 
   }
   ngOnInit(): void {
-  
+  this.formGroup.controls.name.valueChanges.subscribe(val => {
+    this.setNewUrl(val as string);
+  });
    
   }
   startMonthProccess(){
@@ -97,7 +104,9 @@ export default class SettingsComponent implements OnInit {
      }
     });
   }
- 
+  setNewUrl(value: string){
+    this.config.changeURL(value);
+  }
  
  
 }

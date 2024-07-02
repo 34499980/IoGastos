@@ -12,7 +12,13 @@
 
   <button mat-button class="button" color="primary" (click)="addImageCategory()" cdkFocusInitial>- Agregar imagen de categoria</button>
   <button mat-button class="button" color="primary" (click)="startMonthProccess()" cdkFocusInitial>- Proceso mensual</button>
-
+  <ng-container [formGroup]="formGroup">              
+    <mat-form-field style="height: 76px;">
+            <mat-label>URL server
+            </mat-label>
+            <input matInput formControlName="name">
+    </mat-form-field>
+  </ng-container>
 
 <div class="center">
    

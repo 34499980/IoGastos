@@ -10,6 +10,7 @@ import * as packageJson from '../../../package.json';
   export class ConfigsLoaderService {
     private httpClient: HttpClient;
     prod: string = 'https://gastos-api-2-git-main-34499980s-projects.vercel.app/api';
+    public static pubProd: string;
     dev: string = 'http://localhost:8080/api';
     private config: Configs = {
       apiUrl: `${this.prod}`
@@ -24,9 +25,11 @@ import * as packageJson from '../../../package.json';
     }
     public async loadConfigs(): Promise<void> {
       //  this.config = await firstValueFrom(this.httpClient.get<Configs>('config/config.json'));
-    }    
-  }
-
+    }   
+    public async changeURL(value: string): Promise<void> {
+      this.config.apiUrl = value;
+    }     
+  }  
   export interface Configs {
     apiUrl: string;
   }

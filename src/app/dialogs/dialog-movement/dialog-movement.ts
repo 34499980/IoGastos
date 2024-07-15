@@ -22,6 +22,7 @@ import { Movement } from '../../models/models';
 import { MovementService } from '../../services/movement.service';
 import { DialogConfirm } from '../confirm/dialog-confirm';
 import { IonicModule } from '@ionic/angular';
+import { Calculator } from '../calculator/calculator';
 export interface DialogData {
     list: Item[];
     listType: Item[];
@@ -117,5 +118,18 @@ export interface DialogData {
         due: this.formGroup.controls.due.value,
         description: this.formGroup.controls.description.value
       });
+    }
+    openCalculate(){
+      const dialogRef = this.dialogService.open(Calculator, {
+        data: {},
+        
+        disableClose: true
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.formGroup.controls.amount.setValue(result);
+        }
+       });
+    
     }
   }

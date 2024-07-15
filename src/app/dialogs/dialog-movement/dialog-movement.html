@@ -40,6 +40,9 @@
                         </mat-label>
                         <input matInput [min]="0" [max]="50" type="number" formControlName="due"  />
                 </mat-form-field>
+                <ion-button style="margin: 30px" (click)="openCalculate()">
+                        <ion-icon name="calculator-outline"></ion-icon>
+                </ion-button>
         </ng-container>
 </mat-dialog-content>
 <mat-dialog-actions class="end-align">

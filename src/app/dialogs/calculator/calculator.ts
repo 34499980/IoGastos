@@ -74,6 +74,13 @@ export interface DialogData {
       this.auxSymbol = value;
       this.view += value;
      
+      if(this.result != -999999){
+        this.arrayValues = [];
+        this.view = this.result.toString() + value;
+        this.firstValue =  -999999;        
+        this.auxValue = this.result.toString();
+        this.result = -999999;
+      }
        const num = parseFloat(this.auxValue);
        this.addValue(num);
        this.auxValue = '';

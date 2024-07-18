@@ -108,7 +108,11 @@ export default class SummaryHomeComponent {
         this.newItem.movement = movementList;
         this.list.push(this.newItem);
       }    
-      const listResp = this.list.sort((a,b) => b.Tipo.localeCompare(a.Tipo));
+      const listBuys = this.list.filter(x => x.Tipo != "Ingreso")
+      const listnputs = this.list.filter(x => x.Tipo == "Ingreso")
+      const listBuysOrders = listBuys.sort((a,b) => b.Monto -a.Monto);
+      const listResp = listnputs.concat(listBuysOrders);
+      //const listResp = this.list.sort((a,b) => b.Tipo.localeCompare(a.Tipo));
       this.dataSource.data = listResp;
     })
   }

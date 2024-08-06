@@ -75,7 +75,7 @@ export interface DialogData {
     constructor(    
       @Inject(MAT_DIALOG_DATA) public data: DialogData, 
     ) {
-        this.list = data.list;
+        this.list = data.list.sort((a,b) => a.description.localeCompare(b.description));        
         this.listType = data.listType;
         this.title = data.title; 
         this.editable = data.editable;   

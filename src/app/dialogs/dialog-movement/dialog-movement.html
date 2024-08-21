@@ -32,7 +32,8 @@
                 <mat-form-field style="height: 76px;"class="input-outer display-inline inputDiv">
                         <mat-label>Monto
                         </mat-label>
-                        <input matInput type="number" formControlName="amount" aria-label="Amount" />
+                        <input matInput  id="amount" 
+                        name="amount"  formControlName="amount"  (input)="formatCurrency(this.formGroup.controls.amount.value)" aria-label="Amount" />
                 </mat-form-field>
                 
                 <mat-form-field style="height: 76px; width: 80px;">

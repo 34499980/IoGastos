@@ -10,7 +10,7 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
@@ -85,6 +85,7 @@ export interface DialogData {
           this.formGroup.controls.description.setValue(this.movement.description);
           this.formGroup.controls.amount.setValue(this.movement.amount.toString());
           this.formGroup.controls.type.setValue(this.movement.typeKey);
+          this.formatCurrency(this.movement.amount.toString());
           if(this.movement.dueKey != ''){
             const dueValue = this.movement.due?.countDues.toString() as string;
             this.formGroup.controls.due.setValue(dueValue);
@@ -111,9 +112,10 @@ export interface DialogData {
       this.dialogRef.close(false);
     }
     accept(){
+      const amount = this.formGroup.controls.amount.value as string;
       this.dialogRef.close({
         category: this.formGroup.controls.category.value,
-        amount: this.formGroup.controls.amount.value,
+        amount: amount.replace(/[^0-9]/g, '').replace('$', '').replace(/\,/g, ''),
         type: this.formGroup.controls.type.value,
         due: this.formGroup.controls.due.value,
         description: this.formGroup.controls.description.value
@@ -132,4 +134,44 @@ export interface DialogData {
        });
     
     }
+
+    
+    formatCurrency(val: any) {
+      let value = val.toString();
+      value = value.replace(/[^0-9]/g, '').replace('$', '').replace(/\,/g, '');
+      console.log('value ', value);
+      if (value) {
+        let num: number = Number(value);
+        // let temp = new Intl.NumberFormat("en-IN").format(num); //inplace of en-IN you can mention your country's code
+        // console.log(temp, ' temp ');
+        let result =  new Intl.NumberFormat('es-CL', {
+          style: 'currency',
+          currency: 'CLP',
+          minimumFractionDigits: 0,
+        }).format(num);
+        // let result = '₹' + temp;
+        console.log('result ', result);
+    
+    
+        this.formGroup.controls.amount.patchValue(result);
+    
+        console.log('result->', result, typeof result);
+        } else {
+          this.formGroup.controls.amount.reset(null, {emitEvent: true});
+        }
+    }
+    
+      spaceValidator(control: FormControl) {
+        if (
+          control &&
+          control.value &&
+          !control.value.toString().replace(/\s/g, "").length
+        ) {
+          control.setValue("");
+          console.log(control.value);
+          return { required: true };
+        } else {
+          return null;
+        }
+      }
   }

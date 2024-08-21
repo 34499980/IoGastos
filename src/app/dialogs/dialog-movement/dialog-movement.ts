@@ -150,12 +150,12 @@ export interface DialogData {
           minimumFractionDigits: 0,
         }).format(num);
         // let result = '₹' + temp;
-        console.log('result ', result);
+      //  console.log('result ', result);
     
     
         this.formGroup.controls.amount.patchValue(result);
     
-        console.log('result->', result, typeof result);
+       // console.log('result->', result, typeof result);
         } else {
           this.formGroup.controls.amount.reset(null, {emitEvent: true});
         }

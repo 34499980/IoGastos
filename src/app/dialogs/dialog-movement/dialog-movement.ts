@@ -129,7 +129,8 @@ export interface DialogData {
       });
       dialogRef.afterClosed().subscribe(result => {
         if(result){
-          this.formGroup.controls.amount.setValue(result);
+          this.formatCurrency(result);
+         // this.formGroup.controls.amount.setValue(result);
         }
        });
     

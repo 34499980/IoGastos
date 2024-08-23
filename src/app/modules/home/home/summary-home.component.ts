@@ -97,9 +97,9 @@ export default class SummaryHomeComponent {
           this.newItem.Monto += res[index].amount;
           movementList.push(res[index])
           if(Types.INPUT == res[index].typeKey){
-            this.salary += res[index].amount;
+            this.salary += Number(res[index].amount);
           } else {
-            this.buys += res[index].amount;
+            this.buys += Number(res[index].amount);
           }
           index++;
         }       

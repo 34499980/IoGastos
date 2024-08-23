@@ -94,7 +94,7 @@ export default class SummaryHomeComponent {
           category = res[index].categoryKey;
         }
         while(index < end && category == res[index].categoryKey){
-          this.newItem.Monto += res[index].amount;
+          this.newItem.Monto += Number(res[index].amount);
           movementList.push(res[index])
           if(Types.INPUT == res[index].typeKey){
             this.salary += Number(res[index].amount);

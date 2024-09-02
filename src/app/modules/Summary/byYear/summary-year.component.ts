@@ -79,7 +79,7 @@ export default class SummaryByYearComponent implements OnInit {
           this.list.push(newItem);
          });
          const list = res.sort((a, b) => new Date(b.date).getDate() - new Date(a.date).getDate());
-        this.dataSource.data =  this.list;
+        this.dataSource.data =  list;
       } 
     });
        

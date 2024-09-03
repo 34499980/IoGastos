@@ -63,7 +63,7 @@ export default class FeeComponent implements OnInit {
   getSummary(){
     this.dueService.getAll().subscribe({
       next: res =>{
-        const listSort = res.sort((a, b) => new Date(b.createdDate).getDate() - new Date(a.createdDate).getDate());
+        const listSort = res.sort((a, b) => new Date(`1/${b.month}/${b.year}`).getDate() - new Date(`1/${a.month}/${a.year}`).getDate());
 
         listSort.forEach(element => {
           const newItem: Due = {
@@ -82,7 +82,8 @@ export default class FeeComponent implements OnInit {
           }
         
          });
-       // this.list = this.list.sort((a,b) => b.countDues.localeCompare(a.countDues));
+        // const list = this.list.sort((a, b) => new Date(`1/${b.month}/${b.year}`).getDate() - new Date(`1/${a.month}/${a.year}`).getDate());
+
         this.dataSource.data =  this.list;
       } 
     });

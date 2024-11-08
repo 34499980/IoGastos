@@ -18,8 +18,13 @@
                 <div style="width: 100%;">
                         <mat-form-field>
                                 <mat-label>Categoria</mat-label>
-                                <mat-select formControlName="category" required>                               
-                                        <mat-option *ngFor="let item of list" [value]="item.key">
+                                <mat-select formControlName="category" required>        
+                                        <input 
+                                        placeholder="Buscar..."
+                                        #selectFilterInput
+                                        (keydown)="$event.stopPropagation()"
+                                        (keyup)="onGenericFilterSelectKeyUp($event, this.list, this.categoriesSubject$)">                       
+                                        <mat-option *ngFor="let item of (categoriesSubject$) | async" [value]="item.key">
                                         
                                         <ion-icon class="iconCenter" slot="icon-only" name="{{item.image}}"></ion-icon>
         

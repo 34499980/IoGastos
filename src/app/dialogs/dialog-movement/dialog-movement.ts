@@ -23,6 +23,7 @@ import { MovementService } from '../../services/movement.service';
 import { DialogConfirm } from '../confirm/dialog-confirm';
 import { IonicModule } from '@ionic/angular';
 import { Calculator } from '../calculator/calculator';
+import { BehaviorSubject } from 'rxjs';
 export interface DialogData {
     list: Item[];
     listType: Item[];
@@ -56,6 +57,8 @@ export interface DialogData {
   export class DialogMovement {
     public dialogService = inject(MatDialog);
     public movementService = inject(MovementService);
+    public categoriesSubject$: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>([]);
+
     list: Item[]; 
     listType: Item[]; 
     title: string;
@@ -79,6 +82,8 @@ export interface DialogData {
         this.listType = data.listType;
         this.title = data.title; 
         this.editable = data.editable;   
+        this.categoriesSubject$.next(this.list);
+
         if(data.movement){
           this.movement = data.movement;
           this.formGroup.controls.category.setValue(this.movement.categoryKey);
@@ -108,6 +113,12 @@ export interface DialogData {
      }
     });
    }
+   onGenericFilterSelectKeyUp(event, originalList: Item[], subject: BehaviorSubject<Item[]>) {
+    event.stopPropagation();
+    let filter = event.target?.value.toLocaleLowerCase();     
+    const listFilter = originalList.filter(x => x.description.toLocaleLowerCase().includes(filter));
+    subject.next(listFilter);
+  }
     cancel(): void {
       this.dialogRef.close(false);
     }

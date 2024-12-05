@@ -10,7 +10,7 @@
     <div >
         <ng-container [formGroup]="formGroup"> 
             <div>
-                <mat-form-field class="cellMonth">
+                <mat-form-field class="searchMonth">
                     <mat-label>Mes</mat-label>
                     <mat-select formControlName="month" required>                               
                             <mat-option *ngFor="let item of months" [value]="item">
@@ -18,7 +18,7 @@
                             </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field  class="cellYear">
+                <mat-form-field  class="searchYear">
                     <mat-label>Año
                     </mat-label>
                     <input matInput formControlName="year"  />
@@ -26,7 +26,7 @@
             <button mat-button color="primary" style="margin-bottom: 10px;" (click)="search()" [disabled]="formGroup.invalid">
                 <ion-icon slot="icon-only" name="search"></ion-icon>
             </button>
-            <mat-form-field  class="cellYear">
+            <mat-form-field  class="searchCategory">
                 <mat-label>Categoria
                 </mat-label>
                 <input matInput formControlName="category"  />

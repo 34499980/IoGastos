@@ -9,6 +9,21 @@
 .button-add{
   margin: 4px;
 }
+.searchYear{
+  width: 100px;
+  height: 70px;
+  margin-top: 1px;
+}
+.searchMonth{
+  width: 80px;
+  height: 70px;
+  margin-top: 1px;
+}
+.searchCategory{
+  width: 100px;
+  height: 70px;
+  margin-top: 1px;
+}
 .header{
   position: absolute;
     background-color: lavender;
@@ -58,43 +73,43 @@ mat-header-cell{
   margin-right: 8px;
 }
 .cellMonth {
-  margin-top: 10px;
-  height: 50px;
-  margin-left: 10px;
-  margin-right: 4px;
+//  margin-top: 10px;
+  //height: 50px;
+ // margin-left: 10px;
+//  margin-right: 4px;
   min-width: 60px;
-  max-width: 60px;
+  max-width: 120px;
 }
 .cellYear {
-  margin-top: 10px;
+ /* margin-top: 10px;
   height: 50px;
   margin-left: 4px;
-  margin-right: 4px;
+  margin-right: 4px;*/
   min-width: 70px;
-  max-width: 70px;
+  max-width: 140px;
 }
 .cellType {
   min-width: 55px;
-  max-width: 55px;
+  max-width: 110px;
 }
 .cellDescription {
   min-width: 80px;
-  max-width: 80px;
+  max-width: 160px;
 }
 .cellCategory{
   min-width: 65px;
-  max-width: 65px;
+  max-width: 50px;
   word-wrap: break-word;
 }
 .cellAction{
   min-width: 100px;
-  max-width: 100px;
+  max-width: 200px;
 }
 .cellDate{
   min-width: 70px;
-  max-width: 70px;
+  max-width: 140px;
 }
 .cellAmount{
   min-width: 70px;
-  max-width: 70px;
+  max-width: 140px;
 }

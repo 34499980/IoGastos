@@ -78,7 +78,7 @@ mat-header-cell{
  // margin-left: 10px;
 //  margin-right: 4px;
   min-width: 60px;
-  max-width: 120px;
+//  max-width: 120px;
 }
 .cellYear {
  /* margin-top: 10px;
@@ -86,7 +86,7 @@ mat-header-cell{
   margin-left: 4px;
   margin-right: 4px;*/
   min-width: 70px;
-  max-width: 140px;
+//  max-width: 140px;
 }
 .cellType {
   min-width: 55px;
@@ -94,22 +94,22 @@ mat-header-cell{
 }
 .cellDescription {
   min-width: 80px;
-  max-width: 160px;
+ // max-width: 160px;
 }
 .cellCategory{
   min-width: 65px;
-  max-width: 50px;
+//  max-width: 50px;
   word-wrap: break-word;
 }
 .cellAction{
   min-width: 100px;
-  max-width: 200px;
+ // max-width: 200px;
 }
 .cellDate{
   min-width: 70px;
-  max-width: 140px;
+ // max-width: 140px;
 }
 .cellAmount{
   min-width: 70px;
-  max-width: 140px;
+ // max-width: 140px;
 }

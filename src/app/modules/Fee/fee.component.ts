@@ -74,7 +74,9 @@ export default class FeeComponent implements OnInit {
             date: `${element.month}/${element.year}`,
             actualCount: element.due?.actualCount,
             category: this.listCategories.find(x => x.key == element.categoryKey)?.description,
-            description: element.description
+            description: element.description,
+            year: element.year,
+            month: element.month
           }
           const exist = this.list.find(x => x.key == element.dueKey);          
           if(!exist){
@@ -83,8 +85,13 @@ export default class FeeComponent implements OnInit {
         
          });
         // const list = this.list.sort((a, b) => new Date(`1/${b.month}/${b.year}`).getDate() - new Date(`1/${a.month}/${a.year}`).getDate());
-
-        this.dataSource.data =  this.list;
+        const sortedItems: Due[] =  this.list.sort((a, b) => {
+          if (b.year !== a.year) {
+            return Number(b.year) - Number(a.year); // Primero por año descendente
+          }
+          return Number(b.month) - Number(a.month); // Luego por mes descendente
+        });
+        this.dataSource.data =  sortedItems;
       } 
     });
        

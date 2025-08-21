@@ -41,6 +41,22 @@
       top:10px;
   }
 }
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+}
 .center {
   vertical-align: top;
     margin: 0px auto;

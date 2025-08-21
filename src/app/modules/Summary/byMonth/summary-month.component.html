@@ -44,7 +44,13 @@
                 <ng-container matColumnDef="category">
                     <mat-header-cell class="cellCategory" *matHeaderCellDef> Categoria </mat-header-cell>             
                     <mat-cell (click)="edit(item)" class="cellCategory" *matCellDef="let item">
-                        <ion-icon slot="icon-only" name="{{item.image}}"></ion-icon>
+                        <div class="desktop-only">
+                            <ion-icon slot="icon-only" name="{{item.image}}"></ion-icon> {{item.category}}
+                        </div>
+                       
+                        <div class="mobile-only">
+                            <ion-icon slot="icon-only" name="{{item.image}}"></ion-icon>
+                        </div>
                     </mat-cell>
                   </ng-container>
             

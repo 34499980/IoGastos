@@ -54,5 +54,7 @@ export interface Due{
     category?: string;
     description?: string;
     date?: string;
+    year?: number;
+    month?: number;
     
 }
